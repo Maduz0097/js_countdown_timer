@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+p {
+  text-align: center;
+  font-size: 80px;
+  margin-top: 0px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+}/*font-family: 'Montserrat', sans-serif;*/
+
+.row{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 50rem;
+    margin: 0px auto;
+    padding: 10px;
+}
+.col{
+text-align: center;
+border-radius: 35px;
+
+margin: 10px;
+}
+.last_row{
+    font-size: 35px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+.days{
+    margin-bottom: -1rem;
+}
+#seconds{
+    color: #D4AF37;
+}
+#days{
+    color: #C4CACE;
+}
+#hours_color{
+    color: #D4AF37;
+}
+.secs{
+    color: #C4CACE !important;
+}
+.col:first-child{
+    background-color:#D4AF37 ;
+}
+.col:nth-child(2){
+    background-color: #C4CACE;
+}
+</style>
+</head>
+<body>
+
+
+<div class="counter">
+<div class="row">
+    <div class="col">
+<p id="days" class="days"></p>
+<p class="last_row">DAYS</p>
+    </div>
+    <div class="col hours">
+        <p id="hours" class="days"></p>   
+        <p id="hours_color" class="last_row">HOURS</p>   
+    </div>
+    <div class="col minutes">
+        <p id="minutes" class="days"></p> 
+        <p class="last_row">MINUTES</p> 
+    </div>
+    <div class="col seconds">
+        <p id="seconds" class="days"></p> 
+        <p class="last_row secs">SECONDS</p> 
+    </div>
+</div>
+
+</div>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+
+  
+  document.getElementById("days").innerHTML = days;
+  document.getElementById("hours").innerHTML = hours;
+  document.getElementById("minutes").innerHTML = minutes;
+  document.getElementById("seconds").innerHTML = seconds;
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
